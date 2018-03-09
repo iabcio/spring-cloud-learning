@@ -1,0 +1,25 @@
+server:
+  port: 1024
+spring:
+  application:
+    name: eureka-registry
+    
+eureka:
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+  client:
+    serviceUrl:
+      defaultZone: http://eureka.iabc.io:1024/eureka/
+    register-with-eureka: false
+    fetch-registry: true 
+    healthcheck:
+          enabled: true
+  instance:
+    hostname: eureka.iabc.io  
+    
+logging:
+  level:
+    com:
+      netflix:
+        eureka: off
+        discovery: off 

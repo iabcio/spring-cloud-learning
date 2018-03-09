@@ -1,0 +1,65 @@
+spring:
+  application:
+    name: eureka-registry-cloud
+    
+logging:
+  level:
+    com:
+      netflix:
+        eureka: off
+        discovery: off 
+    
+---
+spring:
+  profiles: eurekahost1
+server:
+  port: 1111
+eureka:
+  instance:
+    hostname: eurekahost1  
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+  client:
+    serviceUrl:
+      defaultZone: http://eurekahost2:1112/eureka/,http://eurekahost3:1113/eureka/
+    register-with-eureka: false
+    fetch-registry: true 
+    healthcheck:
+          enabled: true
+       
+---   
+spring:
+  profiles: eurekahost2
+server:
+  port: 1112
+eureka:
+  instance:
+    hostname: eurekahost2  
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+  client:
+    serviceUrl:
+      defaultZone: http://eurekahost1:1111/eureka/,http://eurekahost3:1113/eureka/
+    register-with-eureka: false
+    fetch-registry: true 
+    healthcheck:
+          enabled: true
+      
+---    
+spring:
+  profiles: eurekahost3
+server:
+  port: 1113
+eureka:
+  instance:
+    hostname: eurekahost3  
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+  client:
+    serviceUrl:
+      defaultZone: http://eurekahost1:1111/eureka/,http://eurekahost2:1112/eureka/
+    register-with-eureka: false
+    fetch-registry: true 
+    healthcheck:
+          enabled: true
+   

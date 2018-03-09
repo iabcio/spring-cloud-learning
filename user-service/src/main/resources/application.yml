@@ -1,0 +1,24 @@
+server:
+  port: 2000
+spring:
+  application:
+    name: user-service
+    
+eureka:
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+  client:
+    serviceUrl:
+      defaultZone: http://eurekahost1:1111/eureka/
+#      defaultZone: http://eurekahost1:1111/eureka/,http://eurekahost2:1112/eureka/,http://eurekahost3:1113/eureka/
+    register-with-eureka: true
+    fetch-registry: true 
+    healthcheck:
+      enabled: true
+    
+#logging:
+#  level:
+#    com:
+#      netflix:
+#        eureka: off
+#        discovery: off 

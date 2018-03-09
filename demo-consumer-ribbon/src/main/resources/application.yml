@@ -1,0 +1,23 @@
+server:
+  port: 3004
+spring:
+  application:
+    name: demo-consumer-ribbon
+    
+eureka:
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+  client:
+    serviceUrl:
+      defaultZone: http://eureka.iabc.io:1024/eureka/
+    register-with-eureka: true
+    fetch-registry: true 
+    healthcheck:
+      enabled: true
+    
+#logging:
+#  level:
+#    com:
+#      netflix:
+#        eureka: off
+#        discovery: off 
