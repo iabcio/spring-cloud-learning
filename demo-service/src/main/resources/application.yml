@@ -3,7 +3,15 @@ server:
 spring:
   application:
     name: demo-service
-    
+
+management:
+  security:
+    enabled: false
+endpoints:
+  shutdown:
+    enabled: true
+    sensitive: false
+
 eureka:
   server:
     waitTimeInMsWhenSyncEmpty: 0
@@ -11,10 +19,10 @@ eureka:
     serviceUrl:
       defaultZone: http://eureka.iabc.io:1024/eureka/
     register-with-eureka: true
-    fetch-registry: true 
+    fetch-registry: true
     healthcheck:
       enabled: true
-    
+
 #logging:
 #  level:
 #    com:
