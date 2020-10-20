@@ -24,6 +24,7 @@
  import org.springframework.web.bind.annotation.RestController;
 
  import io.iabc.spring.cloud.learning.demo.consumer.feign.client.DemoServiceClient;
+ import io.iabc.spring.cloud.learning.demo.consumer.feign.client.DemoServiceGatewayClient;
 
  /**
   * Project: spring
@@ -38,15 +39,27 @@
 
      @Resource
      private DemoServiceClient demoServiceClient;
+     @Resource
+     private DemoServiceGatewayClient demoServiceGatewayClient;
 
      @RequestMapping(value = "/consumer/hello", method = RequestMethod.GET)
      public String hello() {
          return demoServiceClient.hello();
      }
 
+     @RequestMapping(value = "/consumer/hello2", method = RequestMethod.GET)
+     public String hello2() {
+         return demoServiceGatewayClient.hello();
+     }
+
      @RequestMapping(value = "/consumer/demo/{index}", method = RequestMethod.GET)
      public String demo(@PathVariable Long index) {
          return demoServiceClient.demo(index);
+     }
+
+     @RequestMapping(value = "/consumer/demo/{index}", method = RequestMethod.GET)
+     public String demo2(@PathVariable Long index) {
+         return demoServiceGatewayClient.demo(index);
      }
 
  }

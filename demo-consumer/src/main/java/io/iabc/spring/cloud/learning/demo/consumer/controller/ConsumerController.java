@@ -61,4 +61,11 @@
          System.out.println(url);
          return restTemplate.getForObject(url, String.class);
      }
+
+     @GetMapping("/consumer/demo/{index}")
+     public String demo2(@PathVariable Long index) {
+         String url = "http://api-gateway.guahao-test.com/demo-service//demo/" + index;
+         System.out.println(url);
+         return restTemplate.getForObject(url, String.class);
+     }
  }

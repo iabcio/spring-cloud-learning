@@ -29,8 +29,8 @@
   * @version V1.0
   * @since 2018-03-07 22:13
   */
- @FeignClient(serviceId = "demo-service")
- public interface DemoServiceClient {
+ @FeignClient(serviceId = "demo-service", url = "api-gateway.guahao-test.com")
+ public interface DemoServiceGatewayClient {
 
      @RequestMapping(value = "/demo-service/hello", method = RequestMethod.GET)
      String hello();
