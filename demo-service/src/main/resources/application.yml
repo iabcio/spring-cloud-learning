@@ -1,8 +1,13 @@
 server:
   port: 3001
+  context-path: /demo-service
 spring:
   application:
     name: demo-service
+  cloud:
+    inetutils:
+      ignored-interfaces[0]: v.*
+      ignored-interfaces[1]: lo.*
 
 management:
   security:
@@ -13,11 +18,15 @@ endpoints:
     sensitive: false
 
 eureka:
+  instance:
+    hostname: ${spring.cloud.client.ipAddress}
   server:
     waitTimeInMsWhenSyncEmpty: 0
   client:
     serviceUrl:
-      defaultZone: http://eureka.iabc.io:1024/eureka/
+      defaultZone: http://eureka-service-stable.guahao-test.com/eureka
+#      defaultZone: http://127.0.0.1:8080/eureka/
+#      defaultZone: http://eureka-service-stable.guahao-test.com/eureka,http://192.168.3.100:9011/eureka/
     register-with-eureka: true
     fetch-registry: true
     healthcheck:

@@ -5,11 +5,15 @@ spring:
     name: demo-consumer
     
 eureka:
+  instance:
+    hostname: ${spring.cloud.client.ipAddress}
   server:
     waitTimeInMsWhenSyncEmpty: 0
   client:
     serviceUrl:
-      defaultZone: http://eureka.iabc.io:1024/eureka/
+#      defaultZone: http://192.168.3.100:9011/eureka/,http://eureka-service-stable.guahao-test.com/eureka
+#      defaultZone: http://127.0.0.1:8080/eureka/,http://eusreka-service-stable.guahao-test.com/eureka
+      defaultZone: http://127.0.0.1:8080/eureka/
     register-with-eureka: true
     fetch-registry: true 
     healthcheck:

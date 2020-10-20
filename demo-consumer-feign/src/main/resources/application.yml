@@ -9,7 +9,8 @@ eureka:
     waitTimeInMsWhenSyncEmpty: 0
   client:
     serviceUrl:
-      defaultZone: http://eureka.iabc.io:1024/eureka/
+#      defaultZone: http://eureka.iabc.io:1024/eureka/
+      defaultZone: http://eureka-service-stable.guahao-test.com/eureka
     register-with-eureka: true
     fetch-registry: true 
     healthcheck:

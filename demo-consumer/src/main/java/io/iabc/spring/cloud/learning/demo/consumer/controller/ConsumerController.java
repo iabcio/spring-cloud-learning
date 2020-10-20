@@ -47,6 +47,13 @@
          return restTemplate.getForObject(url, String.class);
      }
 
+     @GetMapping("/consumer/hello2")
+     public String hello2() {
+         String url = "http://api-gateway.guahao-test.com/demo-service/hello";
+         System.out.println(url);
+         return restTemplate.getForObject(url, String.class);
+     }
+
      @GetMapping("/consumer/demo/{index}")
      public String demo(@PathVariable Long index) {
          ServiceInstance serviceInstance = loadBalancerClient.choose("demo-service");

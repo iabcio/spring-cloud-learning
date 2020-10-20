@@ -29,12 +29,12 @@
   * @version V1.0
   * @since 2018-03-07 22:13
   */
- @FeignClient("demo-service")
+ @FeignClient(serviceId = "demo-service", url = "api-gateway.guahao-test.com")
  public interface DemoServiceClient {
 
-     @RequestMapping(value = "/hello", method = RequestMethod.GET)
+     @RequestMapping(value = "/demo-service/hello", method = RequestMethod.GET)
      String hello();
 
-     @RequestMapping(value = "/demo/{index}", method = RequestMethod.GET)
+     @RequestMapping(value = "/demo-service/demo/{index}", method = RequestMethod.GET)
      String demo(@PathVariable("index") Long index);
  }
